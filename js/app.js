@@ -206,7 +206,8 @@ const criteriosDeLaUrl = () => {
 
 const iniciar = () => {
   const desdeUrl = criteriosDeLaUrl();
-  const criterios = desdeUrl.nombre || desdeUrl.tipo ? desdeUrl : recuperarBusqueda();
+  const hayCriteriosEnUrl = Boolean(desdeUrl.nombre || desdeUrl.tipo);
+  const criterios = hayCriteriosEnUrl ? desdeUrl : recuperarBusqueda();
 
   if (!criterios || (!criterios.nombre && !criterios.tipo)) {
     mostrarMensaje("Buscá una ubicación por nombre o por tipo.", "aviso");
@@ -215,7 +216,12 @@ const iniciar = () => {
 
   campoNombre.value = criterios.nombre ?? "";
   campoTipo.value = criterios.tipo ?? "";
-  realizarBusqueda(campoNombre.value.trim(), campoTipo.value.trim());
+
+  const nombre = campoNombre.value.trim();
+  const tipo = campoTipo.value.trim();
+
+  if (hayCriteriosEnUrl) guardarBusqueda(nombre, tipo);
+  realizarBusqueda(nombre, tipo);
 };
 
 formulario.addEventListener("submit", manejarEnvio);
