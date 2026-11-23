@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Buscador de ubicaciones de la serie Rick and Morty. Consultá la API oficial por nombre y tipo.">
+  <title>Rick and Morty · Buscador de Ubicaciones</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <div class="encabezado__texto">
+      <p class="encabezado__sobre">Trabajo práctico · Variante B</p>
+      <h1 class="encabezado__titulo">Buscador de Ubicaciones</h1>
+      <p class="encabezado__bajada">Datos de la API oficial de Rick and Morty: planetas, dimensiones, estaciones y quiénes las habitan.</p>
+    </div>
+    <span class="encabezado__chip" aria-hidden="true">wubba lubba dub dub</span>
+  </header>
+
+  <main class="contenido">
+
+    <form class="buscador" id="form-buscador" novalidate>
+      <div class="campo">
+        <label for="nombre">Nombre de la ubicación</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Earth, Citadel, Anatomy Park…" autocomplete="off">
+      </div>
+
+      <div class="campo">
+        <label for="tipo">Tipo</label>
+        <input type="text" id="tipo" name="tipo" placeholder="Planet, Space station…" autocomplete="off">
+      </div>
+
+      <div class="buscador__acciones">
+        <button type="submit" class="boton boton--principal" id="boton-buscar">Buscar</button>
+        <button type="button" class="boton" id="boton-limpiar">Limpiar</button>
+      </div>
+    </form>
+
+    <p class="mensaje" id="mensaje" role="status" aria-live="polite"></p>
+
+    <section class="resultados" id="resultados" aria-label="Resultados de la búsqueda"></section>
+
+  </main>
+
+  <footer class="pie">
+    <p>
+      <strong>Fede González</strong> · Trabajo práctico del semestre ·
+      Datos provistos por la <a href="https://rickandmortyapi.com/documentation" target="_blank" rel="noopener noreferrer">API de Rick and Morty</a>
+    </p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
